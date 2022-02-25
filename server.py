@@ -3,7 +3,6 @@ from random import randint
 import itertools
 import threading
 import time
-from tracemalloc import start
 
 port = 12000
 s_soc = socket(AF_INET, SOCK_STREAM)
@@ -27,7 +26,7 @@ def stopAnimating():
         animating=False
         print('\r                               \r', end="")
 
-animating = True
+# Start animation thread
 t = threading.Thread(target=animate, daemon=True)
 t.start()
 
